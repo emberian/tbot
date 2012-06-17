@@ -1,7 +1,7 @@
-tbotframe (tbf)
+tbot
 ===============
 
-*A framework for writing extensible IRC bots in Python*
+*A library to make writing IRC bots with tbotframe easier*
 
 Rationale
 ---------
@@ -39,15 +39,15 @@ This may sound complex, but it's simple. Here's what a module looks like::
     
 That's not so bad! The tbotframe will have a global prefix (defaults to '!'),
 so '!ping' would trigger that listener. There are more ways to create a
-module, but that's the gist of it.
+module, but that's the simplest way.
 
 Centralized Configuration
 -------------------------
 
 *Unimplemented*
 
-Configuration of modules can be a pain, so ``tbf`` centralizes it. If a module
-ships with any ``.conf`` files, they will be added to 
+Configuration of modules can be a pain, so ``tbot`` centralizes it. If a module
+ships with any ``.conf`` files, they will be added to the tbotframe directory
 ``modules/module_name/foo.conf``, where you can then edit them. A module using
 centralized configuration will automatically reload edited files.
 
