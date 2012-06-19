@@ -3,6 +3,8 @@ tbot
 
 *A library to make writing IRC bots easier and more fun*
 
+- License: Modified BSD
+
 Rationale
 ---------
 
