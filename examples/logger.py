@@ -1,7 +1,7 @@
 # A logger will log messages
 from __future__ import print_function
 
-from tbot import listen
+from tbot.bot import listen
 
 @listen(event='message')
 def log(event):
