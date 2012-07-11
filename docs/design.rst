@@ -1,13 +1,25 @@
-Architecture
-============
+Design
+======
 
-Basically, a ``tbot`` can connect to any given IRC server. A tbot instance
-registers event handlers for certain things it wants to listen to. The tbot
-will connect to the configured IRC servers.
+Architecture
+------------
+
+A ``tbot`` connects to either a ``tbot master`` (thus becoming a ``slave``),
+or an IRC server (becomming a ``tbot``).
 
 A ``tbot`` is intended, and works best, when you have multiple small, separate
-``tbot``'s behind a bouncer like ZNC. This way, reloading single modules
-becomes a *lot* easier.
+``tbot slaves`` behind a ``tbot master``. However, a ``tbot`` can be
+connected directly to an IRC server, for ease of deploying. This is, however,
+unreccomended, and makes for slower iterative development, as the tbot master
+will be unable to reload the module dynamically.
+
+A ``tbot master`` acts as a proxy between ``slaves`` and the IRC server. A
+``slave`` registers the events it is interested in with the ``master``. The
+``master`` then forwards the events to the interested ``slaves`` when they
+occur, reducing overhead for the slaves.
+
+Persistence
+-----------
 
 Persistence, as seen by a tbot in ``tbot.bot.state``, is provided (for now) by
 the shelve module. ``tbot.bot.state.commit()`` can be called to manually save

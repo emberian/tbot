@@ -13,7 +13,7 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.48.2 r9819"
    sodipodi:docname="diagram.svg">
   <defs
      id="defs4">
@@ -79,18 +79,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.175"
-     inkscape:cx="496.50616"
-     inkscape:cy="594.0762"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="788.62875"
+     inkscape:cy="110.54737"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:showpageshadow="false"
      showborder="false"
-     inkscape:window-width="1024"
-     inkscape:window-height="722"
+     inkscape:window-width="1280"
+     inkscape:window-height="750"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="26"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -125,15 +125,15 @@
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="282.84271"
-       y="-70.937561"
+       x="260.61935"
+       y="-72.957863"
        id="text2995"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan2997"
-         x="282.84271"
-         y="-70.937561"
-         style="font-size:36px">Internet</tspan></text>
+         x="260.61935"
+         y="-72.957863"
+         style="font-size:36px">IRC Server</tspan></text>
     <g
        id="g4784" />
     <g
@@ -160,8 +160,8 @@
            style="font-size:36px"
            y="314.91022"
            x="167.68532"
-           id="tspan3003"
-           sodipodi:role="line">IRC Bouncer (ZNC etc)</tspan></text>
+           sodipodi:role="line"
+           id="tspan3052">IRC Bouncer (optional)</tspan></text>
     </g>
     <g
        id="g4801"
@@ -359,66 +359,6 @@
            sodipodi:role="line">module</tspan></text>
     </g>
     <path
-       style="fill:none;stroke:#800080;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M -124.89534,1059.3948 343.41404,294.37218"
-       id="path3922"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3026"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4795"
-       inkscape:connection-end-point="d4" />
-    <path
-       style="fill:none;stroke:#800080;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M 129.65797,554.43519 336.72091,294.37218"
-       id="path3924"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3026-5-8"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4795"
-       inkscape:connection-end-point="d4" />
-    <path
-       style="fill:none;stroke:#800080;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M 563.76773,541.47837 391.08774,294.37218"
-       id="path3926"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3026-5-87"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4795"
-       inkscape:connection-end-point="d4" />
-    <path
-       style="fill:none;stroke:#800080;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M 834.02279,1057.0987 386.98902,294.37218"
-       id="path3928"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3026-2"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4795"
-       inkscape:connection-end-point="d4" />
-    <path
-       style="fill:none;stroke:#800080;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M 624.12392,1505.3811 373.20993,294.37218"
-       id="path3930"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3026-9"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4795"
-       inkscape:connection-end-point="d4" />
-    <path
-       style="fill:none;stroke:#800080;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M 102.07002,1518.2463 358.06862,294.37218"
-       id="path3932"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3026-5"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4795"
-       inkscape:connection-end-point="d4" />
-    <path
        style="fill:none;stroke:#008000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="M 275.80017,1312.9999 142.61692,1534.172"
        id="path3934"
@@ -535,7 +475,7 @@
            y="1502.8903"
            x="1058.6399"
            id="tspan3987"
-           sodipodi:role="line">Signals</tspan></text>
+           sodipodi:role="line">ZMQ IPC</tspan></text>
     </g>
   </g>
 </svg>
