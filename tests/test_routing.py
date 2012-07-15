@@ -1,4 +1,6 @@
-from tbot._routing.core import EventRouter
+from weakref import ReferenceError
+
+from tbot._common import EventRouter
 from mock import MagicMock
 
 def test_event_fires():
@@ -9,7 +11,8 @@ def test_event_fires():
     e.register('foo', callback)
     e.fire('foo')
 
-    assert callback.called
+    assert callback.called, "Callback wasn't called"
+
 
 def test_event_fires_with_data():
     e = EventRouter()
@@ -20,8 +23,9 @@ def test_event_fires_with_data():
     e.register('foo',  callback)
     e.fire('foo', data)
     
-    assert callback.called
-    assert callback.call_args[0][1] is data
+    assert callback.called, "Callback wasn't called"
+    assert callback.call_args[0][1] is data, "Data was somehow modified"
+
 
 def test_event_data_copied():
     e = EventRouter()
@@ -32,8 +36,9 @@ def test_event_data_copied():
     e.register('foo', callback)
     e.fire('foo', data,  copy=dict)
     
-    assert callback.called
-    assert callback.call_args[0][1] is not data
+    assert callback.called, "Callback wasn't called"
+    assert callback.call_args[0][1] is not data, "Data wasn't copied"
+
 
 def test_event_callable_filter():
     e = EventRouter()
@@ -43,11 +48,29 @@ def test_event_callable_filter():
 
     e.register(event, callback)
     e.fire('foo')
-    assert callback.called
+    assert callback.called, "Callback wasn't called"
 
     event.return_value = False
     e.fire('foo')
-    assert callback.call_count == 1
+    assert callback.call_count == 1, "Callback was called even though filter returned False"
+
+
+def test_callable_filter_two_callbacks():
+    e = EventRouter()
+
+    callback1 = MagicMock()
+    callback2 = MagicMock()
+
+    filter_ = lambda a, b: True
+
+    e.register(filter_, callback1)
+    e.register(filter_, callback2)
+
+    e.fire('foo')
+
+    assert callback1.called, "First callback not called"
+    assert callback2.called, "Second callback not called"
+
 
 def test_event_two_callbacks():
     e = EventRouter()
@@ -60,11 +83,20 @@ def test_event_two_callbacks():
 
     e.fire('foo')
 
-    assert callback1.called and callback2.called
+    assert callback1.called, "First callback not called"
+    assert callback2.called, "Second callback not called"
+
 
 def test_callback_weakref():
+    import gc
+
     e = EventRouter()
 
-    e.register('foo', lambda a, b: None, True)
+    e.register('foo', lambda a, b: None, weak=True)
 
-    e.fire('foo') # properly handled weakref going away
+    gc.collect() # Ensure that that lambda is collected.
+    
+    try:
+        e.fire('foo') # if no exception is raised, we properly handled weakref going away
+    except ReferenceError:
+        pytest.fail("EventRouter deos not properly handle weakrefs being collected")

@@ -6,6 +6,13 @@ handled, and the filtering that happens.
 
 import weakref
 
+def add_callback(event, callback, registry):
+    callbacks = registry.get(event, [])
+    if callback not in callbacks:
+        callbacks.append(callback)
+
+    registry[event] = callbacks
+
 class EventRouter(object):
     """An event router."""
     events = {}
@@ -27,18 +34,10 @@ class EventRouter(object):
         if weak:
             callback = weakref.proxy(callback)
         
-        try: 
-            if event.__call__:
-                self.event_filters[event] = callback
-                return
-        except AttributeError:
-            pass
-
-        callbacks = self.events.get(event, [])
-        if callback not in callbacks:
-            callbacks.append(callback)
-
-        self.events[event] = callbacks
+        if hasattr(event, '__call__'):
+            add_callback(event, callback, self.event_filters)
+        else:
+            add_callback(event, callback, self.events)
 
     def fire(self, event, data=None, copy=lambda o: o):
         """Fire an event.
@@ -61,6 +60,7 @@ class EventRouter(object):
         for callback in toss:
             callbacks.remove(callback)
 
-        for event_filter, callback in self.event_filters.iteritems():
+        for event_filter, callbacks in self.event_filters.iteritems():
             if event_filter(event, copy(data)):
-                callback(copy(data))
+                for callback in callbacks:
+                    callback(event, copy(data))
