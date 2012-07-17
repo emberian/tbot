@@ -5,11 +5,19 @@ handled, and the filtering that happens.
 """
 
 import weakref
+import logging
 
 def add_callback(event, callback, registry):
+    """Adds the callback to registry.
+
+    If the callback is already registered, it isn't added again, and a warning
+    is printed.
+    """
     callbacks = registry.get(event, [])
     if callback not in callbacks:
         callbacks.append(callback)
+    else:
+        logging.warn("A callback was double added!")
 
     registry[event] = callbacks
 
