@@ -3,6 +3,10 @@ tbot
 
 *A library to make writing IRC bots easier and more fun*
 
+.. image:: https://secure.travis-ci.org/cmr/tbot.png
+   :alt: Travis CI Test Result
+   :target: http://travis-ci.org/cmr/tbot
+
 - License: Modified BSD
 
 Rationale
