@@ -4,3 +4,4 @@ pytest
 pytest-cov
 twisted
 txZMQ
+pylint
