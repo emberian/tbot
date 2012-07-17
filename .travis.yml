@@ -8,3 +8,8 @@ install:
 script: 
         - pylint --rcfile=.pylintrc -i y tbot
         - python setup.py test
+notifications:
+        irc:
+                - "irc.coldfront.net#welcometomars"
+                - "chat.freenode.net#tbot"
+        skip_join: true
