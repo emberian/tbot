@@ -1,10 +1,10 @@
 from weakref import ReferenceError
 
-from tbot._common import EventRouter
+from tbot._common import SimpleRouter
 from mock import MagicMock
 
 def test_event_fires():
-    e = EventRouter()
+    e = SimpleRouter()
 
     callback = MagicMock()
 
@@ -15,7 +15,7 @@ def test_event_fires():
 
 
 def test_event_fires_with_data():
-    e = EventRouter()
+    e = SimpleRouter()
 
     callback = MagicMock()
     data = dict(foo='bar')
@@ -28,7 +28,7 @@ def test_event_fires_with_data():
 
 
 def test_event_data_copied():
-    e = EventRouter()
+    e = SimpleRouter()
 
     callback = MagicMock()
     data = dict(foo='bar')
@@ -41,7 +41,7 @@ def test_event_data_copied():
 
 
 def test_event_callable_filter():
-    e = EventRouter()
+    e = SimpleRouter()
 
     callback = MagicMock()
     event = MagicMock(return_value=True)
@@ -56,7 +56,7 @@ def test_event_callable_filter():
 
 
 def test_callable_filter_two_callbacks():
-    e = EventRouter()
+    e = SimpleRouter()
 
     callback1 = MagicMock()
     callback2 = MagicMock()
@@ -73,7 +73,7 @@ def test_callable_filter_two_callbacks():
 
 
 def test_event_two_callbacks():
-    e = EventRouter()
+    e = SimpleRouter()
 
     callback1 = MagicMock()
     callback2 = MagicMock()
@@ -90,7 +90,7 @@ def test_event_two_callbacks():
 def test_callback_weakref():
     import gc
 
-    e = EventRouter()
+    e = SimpleRouter()
 
     e.register('foo', lambda a, b: None, weak=True)
 
@@ -99,4 +99,4 @@ def test_callback_weakref():
     try:
         e.fire('foo') # if no exception is raised, we properly handled weakref going away
     except ReferenceError:
-        pytest.fail("EventRouter deos not properly handle weakrefs being collected")
+        pytest.fail("SimpleRouter deos not properly handle weakrefs being collected")

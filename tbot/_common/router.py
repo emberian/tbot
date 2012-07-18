@@ -21,7 +21,7 @@ def add_callback(event, callback, registry):
 
     registry[event] = callbacks
 
-class EventRouter(object):
+class SimpleRouter(object):
     """An event router."""
     events = {}
     event_filters = {}
