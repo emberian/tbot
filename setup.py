@@ -12,6 +12,7 @@ class PyTest(Command):
         import os
         import subprocess
         os.environ['PYTHONPATH'] = '.'
+        subprocess.call(['pylint', '--rcfile=.pylintrc', '-i', 'y', 'tbot'])
         errno = subprocess.call(['py.test', '--cov', 'tbot'])
         raise SystemExit(errno)
 
